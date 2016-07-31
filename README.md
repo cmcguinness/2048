@@ -1,4 +1,17 @@
 # 2048
+
+## Note about this version
+
+This version is a clone of Gabriele Cirulli's 2048, except that I've made it
+slightly easier to win.  It does this by trying to locate the new tiles adjacent
+to tiles of the same value, rather than randomly.  If there's no adjacent
+square, however, it still places the tile randomly.
+
+Charles McGuinness  
+github(at)mcguinness.us
+
+## Official Readme:
+
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)

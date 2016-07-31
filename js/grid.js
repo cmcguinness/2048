@@ -35,6 +35,46 @@ Grid.prototype.fromState = function (state) {
 
 // Find the first available random position
 Grid.prototype.randomAvailableCell = function () {
+  for (var x = 0; x < this.size; x++) {
+    for (var y = 0; y < this.size; y++) {
+    	if (!this.cells[x][y]) {
+    		for (var x2 = Math.max(0,x-1); x2 < Math.min(x+2, this.size); x2++) {
+				for (var y2 = Math.max(0,y-1); y2 < Math.min(y+2, this.size); y2++) {
+					if (this.cells[x2][y2] !== null && this.cells[x2][y2].value == 2 &&
+						(x2 ==x || y2 == y)) {
+						return {x : x, y : y};
+					}
+				}
+    		}
+    		
+    	}
+    }
+  }
+
+  var cells = this.availableCells();
+
+  if (cells.length) {
+    return cells[Math.floor(Math.random() * cells.length)];
+  }
+};
+
+Grid.prototype.randomAvailableCell2 = function (v) {
+  for (var x = 0; x < this.size; x++) {
+    for (var y = 0; y < this.size; y++) {
+    	if (!this.cells[x][y]) {
+    		for (var x2 = Math.max(0,x-1); x2 < Math.min(x+2, this.size); x2++) {
+				for (var y2 = Math.max(0,y-1); y2 < Math.min(y+2, this.size); y2++) {
+					if (this.cells[x2][y2] !== null && this.cells[x2][y2].value == v &&
+						(x2 ==x || y2 == y)) {
+						return {x : x, y : y};
+					}
+				}
+    		}
+    		
+    	}
+    }
+  }
+
   var cells = this.availableCells();
 
   if (cells.length) {
