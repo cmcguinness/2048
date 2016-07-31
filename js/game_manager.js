@@ -68,7 +68,13 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+  	// If there are no 2 tiles but a 4 tile, prefer a 4 tile, otherwise opposite
+  	var value;
+  	if (this.grid.has4not2()) {
+    	value = Math.random() < 0.1 ? 2 : 4;
+  	} else {
+    	value = Math.random() < 0.9 ? 2 : 4;
+  	}
     var tile = new Tile(this.grid.randomAvailableCell2(value), value);
 
     this.grid.insertTile(tile);
