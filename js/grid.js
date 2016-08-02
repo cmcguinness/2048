@@ -46,7 +46,7 @@ Grid.prototype.randomAvailableCell = function () {
 					}
 				}
     		}
-    		
+
     	}
     }
   }
@@ -112,6 +112,7 @@ Grid.prototype.eachCell = function (callback) {
     }
   }
 };
+
 //	Do we have a 4 tile on the board but not a 2 tile?
 Grid.prototype.has4not2 = function() {
     var has2 = false;
@@ -131,6 +132,28 @@ Grid.prototype.has4not2 = function() {
     }
 
     return ((has2 == false) && (has4 == true));
+
+}
+
+//	Do we have an 8 tile on the board but not a 4 or 22 tile?
+Grid.prototype.has8not24 = function() {
+    var has24 = false;
+    var has8 = false;
+
+    for (var x = 0; x < this.size; x++) {
+        for (var y = 0; y < this.size; y++) {
+            if (this.cells[x][y] !== null) {
+                if (this.cells[x][y].value == 2 || this.cells[x][y].value == 4) {
+                    has24 = true;
+                }
+                if (this.cells[x][y].value == 8) {
+                    has8 = true;
+                }
+            }
+        }
+    }
+
+    return ((has24 == false) && (has8 == true));
 
 }
 

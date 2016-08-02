@@ -70,7 +70,9 @@ GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
   	// If there are no 2 tiles but a 4 tile, prefer a 4 tile, otherwise opposite
   	var value;
-  	if (this.grid.has4not2()) {
+    if (this.grid.has8not24()) {
+    	value = Math.random() < 0.1 ? 4 : 8;
+  	} else if (this.grid.has4not2()) {
     	value = Math.random() < 0.1 ? 2 : 4;
   	} else {
     	value = Math.random() < 0.9 ? 2 : 4;
