@@ -7,11 +7,18 @@ slightly easier to win.  It does this by trying to locate the new tiles adjacent
 to tiles of the same value, rather than randomly.  If there's no adjacent
 square, however, it still places the tile randomly.
 
+It also will look for the higher of 2, 4, or 8 tiles on the board, and 90%
+of the time will create new tiles with the highest value.  This helps prevent
+"2 clutter" when you get to high levels of the game.
+
+You can play my version at [cmcguinness.github.io/2048](https://cmcguinness.github.io/2048/)
+
+
 Charles McGuinness  
 github(at)mcguinness.us
 
 
-## Official Readme:
+## Official Readme of Original Version:
 
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 
